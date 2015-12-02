@@ -33,6 +33,8 @@ import java.util.Map;
  * 词典树分段，表示词典树的一个分枝
  */
 class DictSegment implements Comparable<DictSegment>{
+
+	public static final DictSegment EMPTY_DICT = new DictSegment((char)0);
 	
 	//公用字典表，存储汉字
 	private static final Map<Character , Character> charMap = new HashMap<Character , Character>(16 , 0.95f);

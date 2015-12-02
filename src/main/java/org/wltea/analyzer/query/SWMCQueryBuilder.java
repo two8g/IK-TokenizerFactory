@@ -25,6 +25,7 @@
 package org.wltea.analyzer.query;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.util.CharArraySet;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.Query;
@@ -69,7 +70,7 @@ public class SWMCQueryBuilder {
 	 */
 	private static List<Lexeme> doAnalyze(String keywords){
 		List<Lexeme> lexemes = new ArrayList<Lexeme>();
-		IKSegmenter ikSeg = new IKSegmenter(new StringReader(keywords) , true);
+		IKSegmenter ikSeg = new IKSegmenter(new StringReader(keywords) , true, CharArraySet.EMPTY_SET, CharArraySet.EMPTY_SET);
 		try{
 			Lexeme l = null;
 			while( (l = ikSeg.next()) != null){

@@ -30,6 +30,8 @@ import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
+import org.apache.lucene.analysis.util.CharArraySet;
+import org.apache.lucene.util.AttributeFactory;
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
@@ -58,11 +60,18 @@ public final class IKTokenizer extends Tokenizer {
 	 * @param useSmart
 	 */
 	public IKTokenizer(boolean useSmart){
-	    super();
 	    offsetAtt = addAttribute(OffsetAttribute.class);
 	    termAtt = addAttribute(CharTermAttribute.class);
 	    typeAtt = addAttribute(TypeAttribute.class);
-		_IKImplement = new IKSegmenter(input , useSmart);
+		_IKImplement = new IKSegmenter(input , useSmart, CharArraySet.EMPTY_SET, CharArraySet.EMPTY_SET);
+	}
+
+	public IKTokenizer(AttributeFactory factory, boolean useSmart, CharArraySet words, CharArraySet stopWords) {
+		super(factory);
+		offsetAtt = addAttribute(OffsetAttribute.class);
+		termAtt = addAttribute(CharTermAttribute.class);
+		typeAtt = addAttribute(TypeAttribute.class);
+		_IKImplement = new IKSegmenter(input, useSmart, words, stopWords);
 	}
 
 	/* (non-Javadoc)
