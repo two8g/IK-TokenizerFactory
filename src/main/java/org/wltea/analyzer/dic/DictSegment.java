@@ -34,8 +34,6 @@ import java.util.Map;
  */
 class DictSegment implements Comparable<DictSegment>{
 
-	public static final DictSegment EMPTY_DICT = new DictSegment((char)0);
-	
 	//公用字典表，存储汉字
 	private static final Map<Character , Character> charMap = new HashMap<Character , Character>(16 , 0.95f);
 	//数组大小上限

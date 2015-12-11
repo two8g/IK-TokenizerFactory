@@ -52,16 +52,16 @@ public class Dictionary {
 	/*
 	 * 主词典对象
 	 */
-	private DictSegment _MainDict = DictSegment.EMPTY_DICT;
+	private DictSegment _MainDict = new DictSegment((char)0);
 	
 	/*
 	 * 停止词词典 
 	 */
-	private DictSegment _StopWordDict = DictSegment.EMPTY_DICT;
+	private DictSegment _StopWordDict = new DictSegment((char)0);
 	/*
 	 * 量词词典
 	 */
-	private DictSegment _QuantifierDict = DictSegment.EMPTY_DICT;
+	private DictSegment _QuantifierDict = new DictSegment((char)0);
 	
 	private Dictionary(CharArraySet words, CharArraySet stop_words){
 		this.loadMainDict();
