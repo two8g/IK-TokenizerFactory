@@ -21,7 +21,7 @@
  * 版权声明 2012，乌龙茶工作室
  * provided by Linliangyi and copyright 2012 by Oolong studio
  */
-package org.wltea.analyzer.sample;
+package sample;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.TokenStream;
@@ -42,7 +42,7 @@ public class IKAnalyzerDemo {
 
     public static void main(String[] args) {
         //构建IK分词器，使用smart分词模式
-        Analyzer analyzer = new IKAnalyzer(true);
+        Analyzer analyzer = new IKAnalyzer(false);
 
         //获取Lucene的TokenStream对象
         TokenStream ts = null;

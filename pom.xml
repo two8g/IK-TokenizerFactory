@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>IK</groupId>
-    <artifactId>IK-Analyzer</artifactId>
-    <version>2016</version>
+    <artifactId>IK-TokenizerFactory</artifactId>
+    <version>solr5.0</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- lucene 5.0.0-->

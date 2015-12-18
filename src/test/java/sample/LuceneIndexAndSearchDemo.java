@@ -23,7 +23,7 @@
  * 
  * 
  */
-package org.wltea.analyzer.sample;
+package sample;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.document.Document;
