@@ -22,14 +22,16 @@
  * provided by Linliangyi and copyright 2012 by Oolong studio
  * 
  */
-package org.wltea.analyzer.core;
+package org.wltea.analyzer.core.segmenter;
 
+
+import org.wltea.analyzer.core.AnalyzeContext;
 
 /**
  * 
  * 子分词器接口
  */
-interface ISegmenter {
+public interface ISegmenter {
 	
 	/**
 	 * 从分析器读取下一个可能分解的词元对象

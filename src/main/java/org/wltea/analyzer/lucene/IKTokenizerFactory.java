@@ -15,31 +15,32 @@ import java.util.Map;
  * 支持solr 5.0
  */
 public class IKTokenizerFactory extends TokenizerFactory implements ResourceLoaderAware {
-    private final boolean useSmart;
-    private final String wordFiles;
-    private final String stopWordFiles;
-    private CharArraySet words;
-    private CharArraySet stopWords;
+	private final String segments = "";//默认子分词器
+	private final boolean useSmart;//粗粒度切分
+	private final String wordFiles;//词典文件
+	private final String stopWordFiles;//停止词词典文件
+	private CharArraySet words;//词典
+	private CharArraySet stopWords;//停止词词典
 
-    public IKTokenizerFactory(Map<String, String> args) {
-        super(args);
-        this.useSmart = getBoolean(args, "useSmart", false);
-        this.wordFiles = get(args, "words");
-        this.stopWordFiles = get(args, "stopWords");
-    }
+	public IKTokenizerFactory(Map<String, String> args) {
+		super(args);
+		this.useSmart = getBoolean(args, "useSmart", false);
+		this.wordFiles = get(args, "words");
+		this.stopWordFiles = get(args, "stopWords");
+	}
 
-    @Override
-    public Tokenizer create(AttributeFactory factory) {
-        return new IKTokenizer(factory, this.useSmart, this.words, this.stopWords);
-    }
+	@Override
+	public Tokenizer create(AttributeFactory factory) {
+		return new IKTokenizer(factory, this.useSmart, this.words, this.stopWords);
+	}
 
-    public void inform(ResourceLoader resourceLoader) throws IOException {
-        if (this.wordFiles != null) {
-            this.words = getWordSet(resourceLoader, wordFiles, true);
-        }
-        if (this.stopWordFiles != null) {
-            this.stopWords = getWordSet(resourceLoader, stopWordFiles, true);
-        }
-    }
+	public void inform(ResourceLoader resourceLoader) throws IOException {
+		if (this.wordFiles != null) {
+			this.words = getWordSet(resourceLoader, wordFiles, true);
+		}
+		if (this.stopWordFiles != null) {
+			this.stopWords = getWordSet(resourceLoader, stopWordFiles, true);
+		}
+	}
 
 }

@@ -22,7 +22,11 @@
  * provided by Linliangyi and copyright 2012 by Oolong studio
  * 
  */
-package org.wltea.analyzer.core;
+package org.wltea.analyzer.core.segmenter;
+
+import org.wltea.analyzer.core.AnalyzeContext;
+import org.wltea.analyzer.core.CharacterUtil;
+import org.wltea.analyzer.core.Lexeme;
 
 import java.util.Arrays;
 
@@ -30,7 +34,7 @@ import java.util.Arrays;
  * 
  * 英文字符及阿拉伯数字子分词器
  */
-class LetterSegmenter implements ISegmenter {
+public class LetterSegmenter implements ISegmenter {
 	
 	//子分词器标签
 	static final String SEGMENTER_NAME = "LETTER_SEGMENTER";
@@ -72,7 +76,7 @@ class LetterSegmenter implements ISegmenter {
 	 */
 	private int arabicEnd;
 	
-	LetterSegmenter(){
+	public LetterSegmenter(){
 		Arrays.sort(Letter_Connector);
 		Arrays.sort(Num_Connector);
 		this.start = -1;

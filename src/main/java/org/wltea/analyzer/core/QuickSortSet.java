@@ -27,7 +27,7 @@ package org.wltea.analyzer.core;
 /**
  * IK分词器专用的Lexem快速排序集合
  */
-class QuickSortSet {
+public class QuickSortSet {
 	//链表头
 	private Cell head;
 	//链表尾
@@ -127,7 +127,7 @@ class QuickSortSet {
 	 * 返回链表尾部元素
 	 * @return
 	 */
-	Lexeme peekLast(){
+	public Lexeme peekLast(){
 		if(this.tail != null){
 			return this.tail.lexeme;
 		}
@@ -169,7 +169,7 @@ class QuickSortSet {
 	 * 判断集合是否为空
 	 * @return
 	 */
-	boolean isEmpty(){
+	public boolean isEmpty(){
 		return this.size == 0;
 	}
 	

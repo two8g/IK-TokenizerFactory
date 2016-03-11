@@ -28,7 +28,7 @@ package org.wltea.analyzer.core;
 /**
  * Lexeme链（路径）
  */
-class LexemePath extends QuickSortSet implements Comparable<LexemePath>{
+public class LexemePath extends QuickSortSet implements Comparable<LexemePath>{
 	
 	//起始位置
 	private int pathBegin;

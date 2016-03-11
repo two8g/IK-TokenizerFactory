@@ -29,9 +29,9 @@ import java.util.TreeSet;
 /**
  * IK分词歧义裁决器
  */
-class IKArbitrator {
+public class IKArbitrator {
 
-    IKArbitrator() {
+    public IKArbitrator() {
 
     }
 
@@ -40,7 +40,7 @@ class IKArbitrator {
      * @param context
      * @param useSmart
      */
-    void process(AnalyzeContext context, boolean useSmart) {
+    public void process(AnalyzeContext context, boolean useSmart) {
         QuickSortSet orgLexemes = context.getOrgLexemes();
         Lexeme orgLexeme = orgLexemes.pollFirst();
 
